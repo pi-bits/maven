@@ -1,0 +1,1 @@
+mvn clean test -PRunUnit -Dskip.integration.test=true

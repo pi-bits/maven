@@ -1,0 +1,1 @@
+mvn clean verify -PRunIT -Dskip.unit.test=true
