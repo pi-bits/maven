@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.lang.management.ManagementFactory;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -24,6 +26,9 @@ public class FacebookSignupStepDef  implements En {
     {
         fireFoxWebDriver = WebDriverManager.getFireFoxWebDriver();
         wait = new WebDriverWait(fireFoxWebDriver, 20);
+        long threadId = Thread.currentThread().getId();
+        String processName = ManagementFactory.getRuntimeMXBean().getName();
+        System.out.println("FacebookSignupStepDef" + "Started in thread: " + threadId + ", in JVM: " + processName);
     }
     @After
     public void tearDown()
