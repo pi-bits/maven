@@ -18,11 +18,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class SignupStepDefinition implements En {
-
-    WebDriver fireFoxWebDriver;
-    private WebDriverWait wait;
-
+public class GitHubSignupStepDefinition implements En  {
+    static WebDriver fireFoxWebDriver;
+    static WebDriverWait wait;
     @Before
     public void setUp()
     {
@@ -34,7 +32,8 @@ public class SignupStepDefinition implements En {
     {
         fireFoxWebDriver.quit();
     }
-    public SignupStepDefinition() {
+
+    public GitHubSignupStepDefinition() {
             Given("^I am on Git hub home page$", () -> {
                 assertFalse(fireFoxWebDriver==null);
                 fireFoxWebDriver.get("https://github.com");

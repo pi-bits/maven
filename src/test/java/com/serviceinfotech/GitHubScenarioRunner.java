@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = "com.serviceinfotech.steps",
-        features = "classpath:features/Signup.feature",
+        features = "classpath:features/GitHubSignUp.feature",
         monochrome = true,
         format = { "pretty", "html:target/cucumber" }
 
 )
-public class CucumberRunner {
+public class GitHubScenarioRunner {
 }
