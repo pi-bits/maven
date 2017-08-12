@@ -14,9 +14,10 @@ public class PhantomJsDemoTest {
         File file = new File("C:\\SWF\\phantomjs-2.1.1-windows\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe");
         System.setProperty("phantomjs.binary.path", file.getAbsolutePath());
         WebDriver driver = new PhantomJSDriver();
-        driver.get("https://www.google.co.uk");
+        driver.get("https://www.google.co.in");
         Thread.sleep(1000);
-        Assert.assertThat("Google", CoreMatchers.is(CoreMatchers.equalTo(driver.getTitle())));
+        Assert.assertThat("Google", CoreMatchers.is(CoreMatchers.equalTo(driver.getTitle())));c:
+        DriverUtility.captureScreen(driver);
 
     }
 }

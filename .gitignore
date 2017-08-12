@@ -11,6 +11,10 @@
 # Mac
 .DS_Store
 
+# phamtom js
+phantomjsdriver.log
+*.log
+
 # Maven
 log/
 target/
