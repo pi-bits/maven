@@ -1,7 +1,6 @@
 package com.serviceinfotech.steps;
 
 import com.serviceinfotech.utils.WebDriverManager;
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java8.En;
@@ -18,14 +17,14 @@ import static org.junit.Assert.assertThat;
 
 
 public class FacebookSignupStepDef  implements En {
-    static WebDriver fireFoxWebDriver;
+    static WebDriver webDriver;
     static WebDriverWait wait;
 
     @Before
     public void setUp()
     {
-        fireFoxWebDriver = WebDriverManager.getFireFoxWebDriver();
-        wait = new WebDriverWait(fireFoxWebDriver, 20);
+        webDriver = WebDriverManager.getphantomjsdriver();
+        wait = new WebDriverWait(webDriver, 20);
         long threadId = Thread.currentThread().getId();
         String processName = ManagementFactory.getRuntimeMXBean().getName();
         System.out.println("FacebookSignupStepDef" + "Started in thread: " + threadId + ", in JVM: " + processName);
@@ -33,22 +32,21 @@ public class FacebookSignupStepDef  implements En {
     @After
     public void tearDown()
     {
-        fireFoxWebDriver.quit();
+        webDriver.quit();
     }
 
     public FacebookSignupStepDef() {
         Given("^I am on Facebook home page$", () -> {
-            assertFalse(fireFoxWebDriver==null);
-            fireFoxWebDriver.get("https://www.facebook.com/");
-            assertThat(fireFoxWebDriver.findElement(By.linkText("Sign Up")).getText(), equalTo("Sign Up"));
+            assertFalse(webDriver ==null);
+            webDriver.get("https://www.facebook.com/");
+            assertThat(webDriver.getTitle(), equalTo("Facebook – log in or sign up"));
         });
         When("^I click on Facebook Sign up$", () -> {
 
-            fireFoxWebDriver.findElement(By.linkText("Sign Up")).click();
+
       });
         Then("^I go to Facebook Sign up Page$", () -> {
-            wait.until(ExpectedConditions.titleIs("Sign up for Facebook | Facebook"));
-            assertThat(fireFoxWebDriver.getTitle(),equalTo("Sign up for Facebook | Facebook"));
+
         });
     }
 }
