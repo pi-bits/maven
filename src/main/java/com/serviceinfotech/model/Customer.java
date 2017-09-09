@@ -37,6 +37,13 @@ public class Customer {
     @NotNull
     private Book anotherBook;
 
+    public Customer() {
+    }
+
+    public Customer(String firstName) {
+        this.firstName = firstName;
+    }
+
 
     public String getFirstName() {
         return firstName;
