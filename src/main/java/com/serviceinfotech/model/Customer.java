@@ -1,10 +1,13 @@
 package com.serviceinfotech.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@Component
 public class Customer {
     @NotNull(groups = FirstName.class, message = "The First Name cannot be null")
     @Size(min = 1, groups = FirstName.class)
@@ -89,4 +92,8 @@ public class Customer {
 
     public interface LastName{}
 
+    @Override
+    public String toString() {
+        return "Customer(" + firstName + ")";
+    }
 }
