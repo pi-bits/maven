@@ -19,7 +19,4 @@ public class HelloControllerTest {
     public void testHello() throws Exception {
         Assertions.assertThat(helloController.index()).isEqualTo("Wohaaa we have customers to greet ... Greetings from Spring Boot!");
     }
-
-
 }
-

@@ -22,5 +22,10 @@ public class ApplicationConfiguration {
      return new CustomerService();
     }
 
+    @Bean
+    public Customer customer()
+    {
+        return new Customer();
+    }
 
 }

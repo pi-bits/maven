@@ -1,20 +1,20 @@
 package com.serviceinfotech.ui;
 
 import com.serviceinfotech.utils.WebDriverManager;
-import org.hamcrest.CoreMatchers;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 
+@Ignore
 public class SeleniumTest {
     private static final String GECKO_DRIVER_PATH = "C:\\Installations\\Selenium\\geckodriver-v0.18.0-win64\\";
     private WebDriver driver;

@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,8 +22,12 @@ public class WithOutDirtiesContextTest {
     @Autowired
     protected Customer customer;
 
+    @Autowired
+    ApplicationContext applicationContext;
+
     @Before
     public void setUp() throws Exception {
+        System.out.println(applicationContext.getBeanDefinitionNames());
         System.out.println("beforeTest:" + customer);
         customer.setFirstName("Roy");
     }

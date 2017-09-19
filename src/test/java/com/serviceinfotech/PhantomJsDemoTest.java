@@ -2,6 +2,7 @@ package com.serviceinfotech;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
@@ -12,7 +13,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class PhantomJsDemoTest {
-    @Test
+    @Ignore
     public void testGooglePageWithPhantomJS() throws Exception {
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();

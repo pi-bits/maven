@@ -17,11 +17,6 @@ public class HelloController {
 
     private List customerList;
 
-
-    public HelloController() {
-
-    }
-
     @RequestMapping("/hello")
     public String index() {
         if (customerList.size()>0)
@@ -34,14 +29,16 @@ public class HelloController {
         }
     }
 
+    @RequestMapping("/customers")
+    public List getCustomers() {
+      return  customerList;
+    }
+
     @PostConstruct
     public void init() throws Exception {
         customerList = customerService.getCustomerList();
     }
 
-    @PreDestroy
-    public void cleanUp() throws Exception {
-    }
 
 
 }
