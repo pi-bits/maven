@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     
  $(".cars").on('change',function(){
- 	console.log(this.value);
+ 	console.log("hello");
  });
 
 

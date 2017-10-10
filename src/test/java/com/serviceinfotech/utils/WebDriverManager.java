@@ -3,7 +3,6 @@ package com.serviceinfotech.utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 
@@ -25,9 +24,15 @@ public class WebDriverManager {
     public static WebDriver getphantomjsdriver()
     {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL resource = classLoader.getResource("phantomjs/bin/"+"phantomjs.exe");
+        URL resource = classLoader.getResource("phantomjs-2.1.1-macosx/bin/" + "phantomjs");
         System.setProperty("phantomjs.binary.path", resource.getPath());
-         driver = new PhantomJSDriver();
+        if (driver != null && driver instanceof PhantomJSDriver) {
+
+            return driver;
+        } else {
+            driver = new PhantomJSDriver();
+        }
+
         return driver;
     }
 

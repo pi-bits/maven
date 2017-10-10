@@ -3,13 +3,9 @@ package com.serviceinfotech;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.net.URL;
 
 public class PhantomJsDemoTest {
@@ -17,7 +13,7 @@ public class PhantomJsDemoTest {
     public void testGooglePageWithPhantomJS() throws Exception {
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL resource = classLoader.getResource("phantomjs/bin/"+"phantomjs.exe");
+        URL resource = classLoader.getResource("phantomjs-2.1.1-macosx/bin/" + "phantomjs");
         System.setProperty("phantomjs.binary.path", resource.getPath());
         WebDriver driver = new PhantomJSDriver();
         driver.get("https://www.google.co.uk");

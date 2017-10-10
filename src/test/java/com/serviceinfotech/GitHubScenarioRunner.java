@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(glue = "com.serviceinfotech.steps",
         features = "classpath:features/GitHubSignUp.feature",
         monochrome = true,
-        format = { "pretty", "html:target/cucumber" }
+        format = {"pretty", "html:target/cucumber", "json:target/cucumber/GitHubScenarioRunner.json"}
 
 )
 public class GitHubScenarioRunner {

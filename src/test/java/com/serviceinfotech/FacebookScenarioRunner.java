@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(glue = "com.serviceinfotech.steps",
         features = "classpath:features/FacebookSignup.feature",
         monochrome = true,
-        format = { "pretty", "html:target/cucumber" }
+        format = {"pretty", "html:target/cucumber", "json:target/cucumber/FacebookScenarioRunner.json"}
 
 )
 public class FacebookScenarioRunner {
