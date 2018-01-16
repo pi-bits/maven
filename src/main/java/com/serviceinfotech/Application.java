@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Arrays;
-
 @SpringBootApplication(scanBasePackageClasses = {ApplicationConfiguration.class})
 
 public class Application {
@@ -22,12 +20,15 @@ public class Application {
     {
      return args -> {
          System.out.println("Let's inspect the beans provided by Spring Boot:");
+         Object customerService = applicationContext.getBean("customerService");
+         Object anotherCustomerService = applicationContext.getBean("customerService");
+         System.out.println(customerService == anotherCustomerService);
+         anotherCustomerService = applicationContext.getBean("anotherCustomerService");
+         System.out.println(customerService == anotherCustomerService);
+         Object anotherCustomerService1 = applicationContext.getBean("anotherCustomerServiceProtoType");
+         Object anotherCustomerService2 = applicationContext.getBean("anotherCustomerServiceProtoType");
+         System.out.println(anotherCustomerService1 == anotherCustomerService2);
 
-         String[] beanNames = applicationContext.getBeanDefinitionNames();
-         Arrays.sort(beanNames);
-         for (String beanName : beanNames) {
-             System.out.println(beanName);
-         }
      };
     }
 }
