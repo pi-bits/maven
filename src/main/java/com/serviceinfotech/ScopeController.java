@@ -10,17 +10,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-public class SessionScopeController {
+public class ScopeController {
 
 
     @Autowired
     private SessionScopedBean sessionScopedBean;
 
+    @Autowired
+    private RequestScopedBean requestScopedBean;
+
+
 
     @RequestMapping(value = "/sessionScope/{value}", method = RequestMethod.GET)
     public @ResponseBody
-    String getAssignedValue(@PathVariable String value) {
+    String getAssignedValueFromSession(@PathVariable String value) {
         sessionScopedBean.setValue(value);
+        return "home";
+    }
+
+    @RequestMapping(value = "/requestScope/{value}", method = RequestMethod.GET)
+    public @ResponseBody
+    String getAssignedFromRequest(@PathVariable String value) {
+        requestScopedBean.setValue(value);
         return "home";
     }
 
